@@ -8,31 +8,34 @@ public class Formatter {
     private final int STANDART_SPACE = 4;
 
     public Formatter() {}
-    public void format(String str){
-        StringBuilder sb = new StringBuilder();
+    public void format(String str, StringBuilder sb){
         for (int i = 0; i < str.length(); i++){
             if (str.charAt(i) == ';') {
-                transfer(sb, str.charAt(i), 0);
+                insertSpecSymbol(sb, str.charAt(i));
             }else if (str.charAt(i) == '{') {
-                transfer(sb, str.charAt(i), getStandartSpace());
+                insertSpecSymbol(sb, str.charAt(i));
+                transfer(sb, getStandartSpace());
             }else if (str.charAt(i) == '}') {
-                transfer(sb, str.charAt(i), -getStandartSpace());
+                transfer(sb, -getStandartSpace());
+                insertSpecSymbol(sb, str.charAt(i));
             }else {
-                myAppendSymbol(sb, str.charAt(i));
+                insertSymbol(sb, str.charAt(i));
             }
         }
-        System.out.println(sb);
     }
 
-    private void transfer(StringBuilder sb, char symbol, int space) {
-        sb.append(symbol);
+    private void transfer(StringBuilder sb, int space) {
         setCountSpace(getCountSpace() + space);
         setCountSpaceBetweenSymbol(getCountSpace());
         sb.append("\n");
     }
 
-    private void myAppendSymbol(StringBuilder sb, char symbol) {
-        if (symbol == ' ') return;
+    private void insertSpecSymbol(StringBuilder sb, char symbol) {
+        sb.append(repeat(' ', getCountSpaceBetweenSymbol())).append(symbol);
+    }
+
+    private void insertSymbol(StringBuilder sb, char symbol) {
+        if (symbol == ' ' || symbol == '\n') return;
         sb.append(repeat(' ', getCountSpaceBetweenSymbol())).append(symbol);
         setCountSpaceBetweenSymbol(0);
     }
@@ -43,22 +46,23 @@ public class Formatter {
         return new String(chars);
     }
 
-    public int getStandartSpace() {
+    private int getStandartSpace() {
         return STANDART_SPACE;
     }
 
-    public int getCountSpace() {
+    private int getCountSpace() {
         return CountSpace;
     }
 
-    public void setCountSpace(int countSpace) {
+    private void setCountSpace(int countSpace) {
         CountSpace = countSpace;
     }
-    public int getCountSpaceBetweenSymbol() {
+
+    private int getCountSpaceBetweenSymbol() {
         return CountSpaceBetweenSymbol;
     }
 
-    public void setCountSpaceBetweenSymbol(int countSpaceBetweenSymbol) {
-        CountSpaceBetweenSymbol = countSpaceBetweenSymbol;
+    private void setCountSpaceBetweenSymbol(int countSpaceBetweenSymbol) {
+        this.CountSpaceBetweenSymbol = countSpaceBetweenSymbol;
     }
 }
