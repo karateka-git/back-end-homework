@@ -1,11 +1,13 @@
 package it.sevenbits;
 
-
 import it.sevenbits.read.ReadFromLine;
 import it.sevenbits.write.WriteInLine;
 
 import java.io.IOException;
 
+/**
+ *
+ */
 public class Main {
     private static String strForFormat = "{{ss;ss;ss;}}";
 
@@ -13,7 +15,7 @@ public class Main {
      *
      * @param args command line arguments
      */
-    public static void main(final String args) {
+    public static void main(final String[] args) {
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter();
         //formatter.format(strForFormat, sb);
