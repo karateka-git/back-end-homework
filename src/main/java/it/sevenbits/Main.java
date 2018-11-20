@@ -1,9 +1,14 @@
 package it.sevenbits;
 
+import it.sevenbits.read.ReadFromFile;
 import it.sevenbits.read.ReadFromLine;
+import it.sevenbits.write.WriteInFile;
 import it.sevenbits.write.WriteInLine;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  *
@@ -13,19 +18,21 @@ public class Main {
 
     /**
      *
-     * @param args command line arguments
+     * @param args input
+     * @throws Exception exception
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws Exception {
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter();
         ReadFromLine reader = new ReadFromLine(strForFormat);
         WriteInLine writer = new WriteInLine(sb);
-        try {
-            formatter.format(reader, writer);
-        } catch (IOException e) {
-            e.getMessage();
-        }
+        formatter.format(reader, writer);
         System.out.println(sb);
-
+        try (
+            ReadFromFile freader = new ReadFromFile(new FileInputStream(args[0]), Charset.forName("UTF-8"));
+            WriteInFile fwriter = new WriteInFile(new FileOutputStream(args[1]), Charset.forName("UTF-8"));
+        ) {
+            formatter.format(freader, fwriter);
+        }
     }
 }

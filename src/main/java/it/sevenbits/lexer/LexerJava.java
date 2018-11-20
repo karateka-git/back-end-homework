@@ -61,7 +61,7 @@ public class LexerJava implements ILexer {
     public IToken readToken() throws IOException {
         Token token = new Token();
         char[] sequence;
-        if (symbol == ' ') {
+        if (symbol == ' ' && reader.hasNext()) {
             symbol = reader.read();
             sequence = scanning(symbol, token);
             token.append(symbol);
@@ -82,7 +82,7 @@ public class LexerJava implements ILexer {
     }
 
     @Override
-    public boolean hasMoreTokens() throws IOException {
+    public boolean hasMoreTokens() {
         return !hasMore;
     }
 }
