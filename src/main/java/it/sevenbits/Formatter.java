@@ -2,7 +2,9 @@ package it.sevenbits;
 
 import it.sevenbits.factory.ILexerFactory;
 import it.sevenbits.factory.LexerFactoryJava;
+import it.sevenbits.lexer.ILexer;
 import it.sevenbits.read.IReader;
+import it.sevenbits.tokens.IToken;
 import it.sevenbits.write.IWriter;
 
 import java.io.IOException;
@@ -30,9 +32,17 @@ public class Formatter {
      * @throws IOException read and write exception
      */
     public void format(final IReader reader, final IWriter writer) throws IOException {
-        lexerFactory.createLexer(reader);
-        while (reader.hasNext()) {
-            char symbol = reader.read();
+        ILexer lexer = lexerFactory.createLexer(reader);
+        while (lexer.hasMoreTokens()) {
+            IToken token = lexer.readToken();
+            write(writer, token);
+        }
+    }
+
+    private void write(final IWriter writer, final IToken token) throws IOException {
+        String string = token.getLexeme();
+        for (int i = 0; i < string.length(); i++) {
+            char symbol = string.charAt(i);
             if (symbol == ';') {
                 insertSpecSymbol(writer, symbol);
                 setCountSpaceBetweenSymbol(1);  // 1 - mark ';', see "insertSymbol"

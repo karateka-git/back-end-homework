@@ -10,7 +10,7 @@ public class Token implements IToken {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override

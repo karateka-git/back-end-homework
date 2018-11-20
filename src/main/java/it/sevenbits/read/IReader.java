@@ -9,14 +9,14 @@ public interface IReader {
     /**
      *
      * @return boolean
-     * @throws IOException Exception не понимаю нужен ли
+     * @throws IOException Exception
      */
-    boolean hasNext();
+    boolean hasNext() throws IOException;
 
     /**
      *
      * @return char
-     * @throws IOException Exception не понимаю нужен ли
+     * @throws IOException Exception
      */
-    char read();
+    char read() throws IOException;
 }

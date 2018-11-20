@@ -22,7 +22,7 @@ public class ReadFromLine implements IReader {
     }
 
     @Override
-    public char read() throws IndexOutOfBoundsException {
+    public char read() {
         if (this.currentIndex >= this.string.length()) {
             throw new IndexOutOfBoundsException("Out of line");
         }

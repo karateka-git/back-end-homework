@@ -3,7 +3,9 @@ package it.sevenbits.lexer;
 
 import it.sevenbits.tokens.IToken;
 
+import java.io.IOException;
+
 public interface ILexer {
-    IToken readToken();
-    boolean hasMoreTokens();
+    IToken readToken() throws IOException;
+    boolean hasMoreTokens() throws IOException;
 }
