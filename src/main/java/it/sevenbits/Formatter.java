@@ -1,5 +1,7 @@
 package it.sevenbits;
 
+import it.sevenbits.factory.ILexerFactory;
+import it.sevenbits.factory.LexerFactoryJava;
 import it.sevenbits.read.IReader;
 import it.sevenbits.write.IWriter;
 
@@ -12,11 +14,14 @@ public class Formatter {
     private int countSpace = 0;
     private int countSpaceBetweenSymbol = 0;
     private final int STANDART_SPACE = 4;
+    private final ILexerFactory lexerFactory;
 
     /**
      * Class constructor Formatter
      */
-    public Formatter() {}
+    public Formatter() {
+        lexerFactory = new LexerFactoryJava();
+    }
 
     /**
      *
@@ -25,6 +30,7 @@ public class Formatter {
      * @throws IOException read and write exception
      */
     public void format(final IReader reader, final IWriter writer) throws IOException {
+        lexerFactory.createLexer(reader);
         while (reader.hasNext()) {
             char symbol = reader.read();
             if (symbol == ';') {

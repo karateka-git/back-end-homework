@@ -1,6 +1,8 @@
 package it.sevenbits;
 
+import it.sevenbits.lexer.LexerJava;
 import it.sevenbits.read.ReadFromLine;
+import it.sevenbits.tokens.IToken;
 import it.sevenbits.write.WriteInLine;
 
 import java.io.IOException;
@@ -9,7 +11,7 @@ import java.io.IOException;
  *
  */
 public class Main {
-    private static String strForFormat = "{{ss;ss;ss;}}";
+    private static String strForFormat = "{asdaw{a213s{2123}+2+}}";
 
     /**
      *
@@ -21,11 +23,17 @@ public class Main {
         //formatter.format(strForFormat, sb);
         ReadFromLine reader = new ReadFromLine(strForFormat);
         WriteInLine writer = new WriteInLine(sb);
-        try {
-            formatter.format(reader, writer);
-        } catch (IOException e) {
-            e.getMessage();
+//        try {
+//            formatter.format(reader, writer);
+//        } catch (IOException e) {
+//            e.getMessage();
+//        }
+//        System.out.println(sb);
+        LexerJava lexerJava = new LexerJava(reader);
+        while (lexerJava.hasMoreTokens()) {
+            IToken token = lexerJava.readToken();
+            System.out.println(token.getLexeme());
         }
-        System.out.println(sb);
+
     }
 }
