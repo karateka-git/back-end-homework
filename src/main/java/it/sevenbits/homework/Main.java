@@ -1,13 +1,12 @@
-package it.sevenbits;
+package it.sevenbits.homework;
 
-import it.sevenbits.read.ReadFromFile;
-import it.sevenbits.read.ReadFromLine;
-import it.sevenbits.write.WriteInFile;
-import it.sevenbits.write.WriteInLine;
+import it.sevenbits.homework.read.ReadFromFile;
+import it.sevenbits.homework.read.ReadFromLine;
+import it.sevenbits.homework.write.WriteInFile;
+import it.sevenbits.homework.write.WriteInLine;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.nio.charset.Charset;
 
 /**
@@ -22,6 +21,7 @@ public class Main {
      * @throws Exception exception
      */
     public static void main(final String[] args) throws Exception {
+
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter();
         ReadFromLine reader = new ReadFromLine(strForFormat);

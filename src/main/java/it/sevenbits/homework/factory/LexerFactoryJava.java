@@ -1,8 +1,8 @@
-package it.sevenbits.factory;
+package it.sevenbits.homework.factory;
 
-import it.sevenbits.lexer.ILexer;
-import it.sevenbits.lexer.LexerJava;
-import it.sevenbits.read.IReader;
+import it.sevenbits.homework.read.IReader;
+import it.sevenbits.homework.lexer.ILexer;
+import it.sevenbits.homework.lexer.LexerJava;
 
 
 public class LexerFactoryJava implements ILexerFactory {

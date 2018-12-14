@@ -1,7 +1,7 @@
-package it.sevenbits.lexer;
+package it.sevenbits.homework.lexer;
 
 
-import it.sevenbits.tokens.IToken;
+import it.sevenbits.homework.tokens.IToken;
 
 import java.io.IOException;
 

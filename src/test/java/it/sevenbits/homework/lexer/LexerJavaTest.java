@@ -1,7 +1,7 @@
-package it.sevenbits.lexer;
+package it.sevenbits.homework.lexer;
 
-import it.sevenbits.read.IReader;
-import it.sevenbits.tokens.IToken;
+import it.sevenbits.homework.read.IReader;
+import it.sevenbits.homework.tokens.IToken;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

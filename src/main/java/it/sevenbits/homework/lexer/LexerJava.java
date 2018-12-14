@@ -1,8 +1,8 @@
-package it.sevenbits.lexer;
+package it.sevenbits.homework.lexer;
 
-import it.sevenbits.read.IReader;
-import it.sevenbits.tokens.IToken;
-import it.sevenbits.tokens.Token;
+import it.sevenbits.homework.read.IReader;
+import it.sevenbits.homework.tokens.IToken;
+import it.sevenbits.homework.tokens.Token;
 
 import java.io.IOException;
 
@@ -32,7 +32,7 @@ public class LexerJava implements ILexer {
         char[] separatingSymbol = {')', '(', '{', '}'};
         char[] literalSymbol = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
                 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-        char[] numeric = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        char[] numeric = {           };
         char[] endLine = {';'};
         char[] space = {' ', '\n'};
         if (contains(mathSymbol, symbol)) {

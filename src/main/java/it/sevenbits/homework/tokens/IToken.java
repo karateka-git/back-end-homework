@@ -1,4 +1,4 @@
-package it.sevenbits.tokens;
+package it.sevenbits.homework.tokens;
 
 public interface IToken {
     String getName();

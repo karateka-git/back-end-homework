@@ -1,4 +1,4 @@
-package it.sevenbits.tokens;
+package it.sevenbits.homework.tokens;
 
 public class Token implements IToken {
     private String name;

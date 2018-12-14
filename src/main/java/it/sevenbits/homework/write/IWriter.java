@@ -1,4 +1,4 @@
-package it.sevenbits.write;
+package it.sevenbits.homework.write;
 
 import java.io.IOException;
 

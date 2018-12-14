@@ -1,11 +1,11 @@
-package it.sevenbits;
+package it.sevenbits.homework;
 
-import it.sevenbits.factory.ILexerFactory;
-import it.sevenbits.factory.LexerFactoryJava;
-import it.sevenbits.lexer.ILexer;
-import it.sevenbits.read.IReader;
-import it.sevenbits.tokens.IToken;
-import it.sevenbits.write.IWriter;
+import it.sevenbits.homework.factory.ILexerFactory;
+import it.sevenbits.homework.factory.LexerFactoryJava;
+import it.sevenbits.homework.read.IReader;
+import it.sevenbits.homework.tokens.IToken;
+import it.sevenbits.homework.write.IWriter;
+import it.sevenbits.homework.lexer.ILexer;
 
 import java.io.IOException;
 

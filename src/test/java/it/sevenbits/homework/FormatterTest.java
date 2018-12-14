@@ -1,6 +1,6 @@
-package it.sevenbits;
-import it.sevenbits.read.ReadFromLine;
-import it.sevenbits.write.WriteInLine;
+package it.sevenbits.homework;
+import it.sevenbits.homework.read.ReadFromLine;
+import it.sevenbits.homework.write.WriteInLine;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -4,4 +4,4 @@
  * @author Vladislav
  * @version 1.0
  */
-package it.sevenbits.lexer;
+package it.sevenbits.homework.tokens;

@@ -1,7 +1,7 @@
-package it.sevenbits.factory;
+package it.sevenbits.homework.factory;
 
-import it.sevenbits.lexer.ILexer;
-import it.sevenbits.read.IReader;
+import it.sevenbits.homework.lexer.ILexer;
+import it.sevenbits.homework.read.IReader;
 
 /**
  *
