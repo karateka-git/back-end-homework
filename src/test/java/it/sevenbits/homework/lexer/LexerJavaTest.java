@@ -47,4 +47,23 @@ public class LexerJavaTest {
         }
     }
 
+    @Test
+    public void stateTest() {
+        try {
+            String trueCurrent = "literal";
+            String trueCurrentTwo = "numeric";
+            when(reader.hasNext()).thenReturn(true).thenReturn(true).thenReturn(true).thenReturn(true).thenReturn(false);
+            when(reader.read()).thenReturn('a').thenReturn('b').thenReturn('c').thenReturn('2');
+            token = lexer.readToken();
+            Assert.assertEquals(trueCurrent, token.getName());
+            Assert.assertEquals("abc", token.getLexeme());
+            token = lexer.readToken();
+            Assert.assertEquals(trueCurrentTwo, token.getName());
+            Assert.assertEquals("2", token.getLexeme());
+
+        } catch (IOException e) {
+            fail("IOException");
+        }
+    }
+
 }

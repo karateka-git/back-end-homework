@@ -1,6 +1,6 @@
 a{
     for{
-        fordak2313{
+        fordak2313(){
             {
                 aaa;
             }

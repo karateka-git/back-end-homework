@@ -4,7 +4,8 @@ public class Token implements IToken {
     private String name;
     private StringBuilder sb;
 
-    public Token() {
+    public Token(final String name) {
+        this.name = name;
         this.sb = new StringBuilder();
     }
 
@@ -18,10 +19,6 @@ public class Token implements IToken {
         return String.valueOf(sb);
     }
 
-    @Override
-    public void setName(final String name) {
-        this.name = name;
-    }
 
     @Override
     public void append(final char symbol) {
