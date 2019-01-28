@@ -11,11 +11,11 @@ import it.sevenbits.homework.tokens.Token;
 
 import java.io.IOException;
 
-public class LexerJava implements ILexer {
+public class Lexer implements ILexer {
     private IReader reader;
     private boolean hasMore = false;
     private char preSymbol = ' ';
-    public LexerJava(final IReader reader) {
+    public Lexer(final IReader reader) {
         this.reader = reader;
     }
 
@@ -33,6 +33,7 @@ public class LexerJava implements ILexer {
             container.setSymbol(preSymbol);
             lexerCommand.runningCommand();
             state = lexerStateMap.getNextState(state, preSymbol);
+
         }
 
         while (reader.hasNext() && !state.toString().equals("finalState")) {
@@ -42,10 +43,11 @@ public class LexerJava implements ILexer {
             lexerCommand.runningCommand();
             state = lexerStateMap.getNextState(state, symbol);
             preSymbol = symbol;
-            System.out.println(state.toString());
+        }
+        if (!state.toString().equals("finalState")) {
+            hasMore = true;
         }
 
-        System.out.println(buffer.toString());
         Token token = new Token(lexerStateMap.getNextState(lexerStateMap.getStartState(),
                 buffer.toString().charAt(0)).toString());
         for (int i = 0; i < buffer.toString().length(); i++) {

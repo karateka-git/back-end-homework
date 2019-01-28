@@ -1,5 +1,6 @@
 package it.sevenbits.homework;
 
+import it.sevenbits.homework.formatter.Formatter;
 import it.sevenbits.homework.read.ReadFromFile;
 import it.sevenbits.homework.read.ReadFromLine;
 import it.sevenbits.homework.write.WriteInFile;
@@ -13,7 +14,7 @@ import java.nio.charset.Charset;
  *
  */
 public class Main {
-    private static String strForFormat = "\na{for{for{  { \n \n  a   aa;}}    }}\na";
+    private static String strForFormat = "\na{for{for{ for { \n \n  a   aa;}}    }}\na";
 
     /**
      *

@@ -11,16 +11,16 @@ import java.io.IOException;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
-public class LexerJavaTest {
+public class LexerTest {
     private IToken token;
-    private LexerJava lexer;
+    private Lexer lexer;
     private IReader reader;
 
     @Before
     public void setUp() {
         reader = mock(IReader.class);
         this.token = mock(IToken.class);
-        lexer = new LexerJava(reader);
+        lexer = new Lexer(reader);
     }
 
     @Test(expected = NullPointerException.class)

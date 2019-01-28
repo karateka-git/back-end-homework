@@ -1,4 +1,5 @@
-package it.sevenbits.homework;
+package it.sevenbits.homework.formatter;
+import it.sevenbits.homework.formatter.Formatter;
 import it.sevenbits.homework.read.ReadFromLine;
 import it.sevenbits.homework.write.WriteInLine;
 
@@ -43,15 +44,18 @@ public class FormatterTest {
     @Test
     public void testCorrectResultTwo() {
         StringBuilder current = new StringBuilder();
-        String strForFormat = "{{{{ss;}}}}";
-        String trueCurrent = "{\n" +
-                "    {\n" +
-                "        {\n" +
-                "            {\n" +
+        String strForFormat = "  s    \ns{ s  {s\n{ s  { ss;ss;}  } }}ss21{  }";
+        String trueCurrent = "s s {\n" +
+                "    s {\n" +
+                "        s {\n" +
+                "            s {\n" +
                 "                ss;\n" +
-                "            }\n" +
+                "                ss;\n"+
+                "            }\n"+
                 "        }\n" +
                 "    }\n" +
+                "}\n" +
+                "{\n" +
                 "}";
         ReadFromLine reader = new ReadFromLine(strForFormat);
         WriteInLine writer = new WriteInLine(current);
@@ -60,6 +64,7 @@ public class FormatterTest {
         } catch (IOException e) {
             fail("IOException");
         }
+        System.out.println(current);
         Assert.assertEquals(trueCurrent, current.toString());
     }
 

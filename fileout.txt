@@ -1,9 +1,3 @@
-a{
-    for{
-        fordak2313(){
-            {
-                aaa;
-            }
-        }
-    }
-}a
+a {
+    for {
+        for dak2313

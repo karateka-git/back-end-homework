@@ -25,13 +25,15 @@ public class LexerStateMap {
         states.put(new Pair<>(startState, ';'), lineEnd);
         states.put(new Pair<>(startState, '{'), openBlockCode);
         states.put(new Pair<>(startState, '}'), closeBlockCode);
-        states.put(new Pair<>(startState, ' '), space);
-        states.put(new Pair<>(startState, '\n'), space);
+        states.put(new Pair<>(startState, ' '), startState);
+        states.put(new Pair<>(startState, '\n'), startState);
         states.put(new Pair<>(startState, 'a'), literal);
         states.put(new Pair<>(startState, '1'), numeric);
 
         states.put(new Pair<>(literal, 'a'), literal);
         states.put(new Pair<>(numeric, '1'), numeric);
+        states.put(new Pair<>(literal, '1'), literal);
+        states.put(new Pair<>(numeric, 'a'), numeric);
     }
 
     public State getStartState() {
@@ -49,5 +51,4 @@ public class LexerStateMap {
         copysignal = Character.isDigit(signal) ? '1' : Character.isLetter(signal) ? 'a' : signal;
         return states.getOrDefault(new Pair<>(state, copysignal), finalState);
     }
-
 }
