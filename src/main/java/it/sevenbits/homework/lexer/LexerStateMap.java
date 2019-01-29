@@ -21,23 +21,45 @@ public class LexerStateMap {
         State space = new State("space");
         State literal = new State("literal");
         State numeric = new State("numeric");
+        State perComment = new State("perComment");
+        State singleComment = new State("singleComment");
 
         states.put(new Pair<>(startState, ';'), lineEnd);
         states.put(new Pair<>(startState, '{'), openBlockCode);
         states.put(new Pair<>(startState, '}'), closeBlockCode);
+        states.put(new Pair<>(startState, '('), literal);
+        states.put(new Pair<>(startState, ')'), literal);
         states.put(new Pair<>(startState, ' '), startState);
         states.put(new Pair<>(startState, '\n'), startState);
         states.put(new Pair<>(startState, 'a'), literal);
         states.put(new Pair<>(startState, '1'), numeric);
+        states.put(new Pair<>(startState, '/'), perComment);
 
         states.put(new Pair<>(literal, 'a'), literal);
+        states.put(new Pair<>(literal, '('), literal);
+        states.put(new Pair<>(literal, ')'), literal);
         states.put(new Pair<>(numeric, '1'), numeric);
         states.put(new Pair<>(literal, '1'), literal);
         states.put(new Pair<>(numeric, 'a'), numeric);
+
+        states.put(new Pair<>(perComment, '/'), singleComment);
+        states.put(new Pair<>(singleComment, '1'), singleComment);
+        states.put(new Pair<>(singleComment, 'a'), singleComment);
+        states.put(new Pair<>(singleComment, '}'), singleComment);
+        states.put(new Pair<>(singleComment, '{'), singleComment);
+        states.put(new Pair<>(singleComment, ';'), singleComment);
+        states.put(new Pair<>(singleComment, '('), singleComment);
+        states.put(new Pair<>(singleComment, ' '), singleComment);
+        states.put(new Pair<>(singleComment, ')'), singleComment);
+        states.put(new Pair<>(singleComment, '\n'), finalState);
     }
 
     public State getStartState() {
         return startState;
+    }
+
+    public State getFinalState() {
+        return finalState;
     }
 
     /**

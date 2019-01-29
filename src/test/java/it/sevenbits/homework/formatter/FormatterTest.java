@@ -22,15 +22,15 @@ public class FormatterTest {
     public void testCorrectResultOne() {
         StringBuilder current = new StringBuilder();
         String strForFormat = "\na{for{for{  { \n \n  a   aa;}}    }}\na";
-        String trueCurrent = "a{\n" +
-                "    for{\n" +
-                "        for{\n" +
-                "            {\n" +
-                "                aaa;\n" +
-                "            }\n" +
-                "        }\n" +
-                "    }\n" +
-                "}a";
+        String trueCurrent = "a {\n" +
+            "    for {\n" +
+            "        for { {\n" +
+            "                a aa;\n"+
+            "            }\n" +
+            "        }\n" +
+            "    }\n" +
+            "}\n" +
+            "a";
         ReadFromLine reader = new ReadFromLine(strForFormat);
         WriteInLine writer = new WriteInLine(current);
         try {
@@ -55,7 +55,7 @@ public class FormatterTest {
                 "        }\n" +
                 "    }\n" +
                 "}\n" +
-                "{\n" +
+                "ss21 {\n" +
                 "}";
         ReadFromLine reader = new ReadFromLine(strForFormat);
         WriteInLine writer = new WriteInLine(current);
@@ -71,9 +71,9 @@ public class FormatterTest {
     @Test
     public void testCorrectResultThree() {
         StringBuilder current = new StringBuilder();
-        String strForFormat = "{{ss;ss;ss;}}";
-        String trueCurrent = "{\n" +
-                "    {\n" +
+        String strForFormat = "for{for{ss;ss;ss;}}";
+        String trueCurrent = "for {\n" +
+                "    for {\n" +
                 "        ss;\n" +
                 "        ss;\n" +
                 "        ss;\n" +

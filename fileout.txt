@@ -1,3 +1,7 @@
 a {
     for {
-        for dak2313
+        for dak2313() { {
+                a aa;
+            }
+        }//    }}
+w

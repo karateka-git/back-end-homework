@@ -5,9 +5,7 @@ import it.sevenbits.homework.tokens.IToken;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.IOException;
-
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
@@ -16,6 +14,7 @@ public class LexerTest {
     private Lexer lexer;
     private IReader reader;
 
+
     @Before
     public void setUp() {
         reader = mock(IReader.class);
@@ -23,23 +22,22 @@ public class LexerTest {
         lexer = new Lexer(reader);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void failNullPointerTest() {
-        try {
-            when(reader.hasNext()).thenReturn(true);
-            when(reader.read()).thenReturn('_');
-            lexer.readToken();
-        } catch (IOException e) {
-            fail("IOException");
-        }
-    }
+//    @Test
+//    public void NotDefinedTest() throws IOException {
+//        TestLogger logger = TestLoggerFactory.getTestLogger(Lexer.class);
+//        char preSymbol = '_';
+//        when(reader.hasNext()).thenReturn(true);
+//        when(reader.read()).thenReturn(preSymbol);
+//        lexer.readToken();
+//        assertEquals(String.format("State for \"%s\" not defined", preSymbol), logger.getLoggingEvents().get(0).getMessage());
+//    }
 
     @Test
     public void returnTokenNameMathTest() {
         try {
-            String trueCurrent = "math";
+            String trueCurrent = "openBlockCode";
             when(reader.hasNext()).thenReturn(true).thenReturn(false);
-            when(reader.read()).thenReturn('+');
+            when(reader.read()).thenReturn('{');
             token = lexer.readToken();
             Assert.assertEquals(trueCurrent, token.getName());
         } catch (IOException e) {
@@ -51,15 +49,27 @@ public class LexerTest {
     public void stateTest() {
         try {
             String trueCurrent = "literal";
-            String trueCurrentTwo = "numeric";
             when(reader.hasNext()).thenReturn(true).thenReturn(true).thenReturn(true).thenReturn(true).thenReturn(false);
             when(reader.read()).thenReturn('a').thenReturn('b').thenReturn('c').thenReturn('2');
             token = lexer.readToken();
             Assert.assertEquals(trueCurrent, token.getName());
-            Assert.assertEquals("abc", token.getLexeme());
+            Assert.assertEquals("abc2", token.getLexeme());
+
+        } catch (IOException e) {
+            fail("IOException");
+        }
+    }
+
+    @Test
+    public void commentTest() {
+        try {
+            String trueCurrent = "//s3\n";
+            String trueCurrentName = "singleComment";
+            when(reader.hasNext()).thenReturn(true);
+            when(reader.read()).thenReturn('/').thenReturn('/').thenReturn('s').thenReturn('3').thenReturn('\n');
             token = lexer.readToken();
-            Assert.assertEquals(trueCurrentTwo, token.getName());
-            Assert.assertEquals("2", token.getLexeme());
+            Assert.assertEquals(trueCurrentName, token.getName());
+            Assert.assertEquals(trueCurrent, token.getLexeme());
 
         } catch (IOException e) {
             fail("IOException");

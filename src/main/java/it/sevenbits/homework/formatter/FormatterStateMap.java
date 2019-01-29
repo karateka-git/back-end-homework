@@ -11,7 +11,10 @@ public class FormatterStateMap {
 
     private final Map<String, State> states;
 
-    public FormatterStateMap() {
+    /**
+     * StateMap for Formatter
+     */
+    FormatterStateMap() {
         states = new HashMap<>();
 
         State word = new State("word");
@@ -19,6 +22,7 @@ public class FormatterStateMap {
         State openBlockCode = new State("openBlockCode");
         State closeBlockCode = new State("closeBlockCode");
         State lineEnd = new State("lineEnd");
+        State singleComment = new State("singleComment");
 
         states.put("literal", word);
         states.put("numeric", word);
@@ -26,13 +30,19 @@ public class FormatterStateMap {
         states.put("openBlockCode", openBlockCode);
         states.put("closeBlockCode", closeBlockCode);
         states.put("lineEnd", lineEnd);
+        states.put("singleComment", singleComment);
     }
 
-    public State getStartState() {
+    State getStartState() {
         return startState;
     }
 
-    public State getNextState(final State state, final String tokenName) {
+    /**
+     *
+     * @param tokenName - parameter to determine the next state
+     * @return - current state
+     */
+    State getNextState(final String tokenName) {
         return states.getOrDefault(tokenName, finalState);
     }
 }

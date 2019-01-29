@@ -42,6 +42,15 @@ public class FormatterCommand {
         states.put(new Pair<>("word", "closeBlockCode"), new WriteCloseBlock(container));
         states.put(new Pair<>("space", "closeBlockCode"), new WriteCloseBlock(container));
         states.put(new Pair<>("openBlockCode", "closeBlockCode"), new WriteCloseBlock(container));
+
+        states.put(new Pair<>("startState", "singleComment"), new WriteWord(container));
+        states.put(new Pair<>("closeBlockCode", "singleComment"), new WriteWord(container));
+        states.put(new Pair<>("openBlockCode", "singleComment"), new WriteWord(container));
+        states.put(new Pair<>("word", "singleComment"), new WriteWord(container));
+        states.put(new Pair<>("space", "singleComment"), new WriteWord(container));
+        states.put(new Pair<>("lineEnd", "singleComment"), new WriteWord(container));
+        states.put(new Pair<>("singleComment", "literal"), new WriteWord(container));
+        states.put(new Pair<>("singleComment", "numeric"), new WriteWord(container));
     }
 
     public void runningCommand() {

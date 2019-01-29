@@ -44,7 +44,7 @@ public class Formatter {
             container.setToken(token);
             container.setCurrentState(state);
             formatterCommand.runningCommand();
-            state = formatterStateMap.getNextState(state, token.getName());
+            state = formatterStateMap.getNextState(token.getName());
         }
     }
 }

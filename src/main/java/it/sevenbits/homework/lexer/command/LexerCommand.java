@@ -18,15 +18,29 @@ public class LexerCommand {
         states.put(new Pair<>("startState", ';'), new AddSymbol(container));
         states.put(new Pair<>("startState", '{'), new AddSymbol(container));
         states.put(new Pair<>("startState", '}'), new AddSymbol(container));
-//        states.put(new Pair<>("startState", ' '), new AddSymbol(container));
-//        states.put(new Pair<>("startState", '\n'), new AddSymbol(container));
+        states.put(new Pair<>("startState", '('), new AddSymbol(container));
+        states.put(new Pair<>("startState", ')'), new AddSymbol(container));
         states.put(new Pair<>("startState", 'a'), new AddSymbol(container));
         states.put(new Pair<>("startState", '1'), new AddSymbol(container));
+        states.put(new Pair<>("startState", '/'), new AddSymbol(container));
 
         states.put(new Pair<>("literal", 'a'), new AddSymbol(container));
+        states.put(new Pair<>("literal", '('), new AddSymbol(container));
+        states.put(new Pair<>("literal", ')'), new AddSymbol(container));
         states.put(new Pair<>("numeric", '1'), new AddSymbol(container));
         states.put(new Pair<>("literal", '1'), new AddSymbol(container));
         states.put(new Pair<>("numeric", 'a'), new AddSymbol(container));
+
+        states.put(new Pair<>("perComment", '/'), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", '1'), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", 'a'), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", '{'), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", ';'), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", '}'), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", '('), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", ')'), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", ' '), new AddSymbol(container));
+        states.put(new Pair<>("singleComment", '\n'), new AddSymbol(container));
     }
 
     public void runningCommand() {
