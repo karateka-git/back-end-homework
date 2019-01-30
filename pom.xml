@@ -20,6 +20,13 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/uk.org.lidalia/slf4j-test -->
+        <dependency>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>slf4j-test</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -30,13 +37,7 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.25</version>
         </dependency>
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/uk.org.lidalia/slf4j-test &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>uk.org.lidalia</groupId>-->
-            <!--<artifactId>slf4j-test</artifactId>-->
-            <!--<version>1.0.0</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
+
 
         <dependency>
             <groupId>org.mockito</groupId>
@@ -100,14 +101,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>-->
-                <!--<artifactId>maven-surefire-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<classpathDependencyExcludes>-->
-                        <!--<classpathDependencyExcludes>ch.qos.logback:logback-classic</classpathDependencyExcludes>-->
-                    <!--</classpathDependencyExcludes>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
         </plugins>
     </build>
 

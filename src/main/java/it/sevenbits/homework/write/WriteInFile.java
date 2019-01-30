@@ -19,7 +19,7 @@ public class WriteInFile implements IWriter, AutoCloseable {
         bw = new BufferedWriter(new OutputStreamWriter(outputStream, charset));
     }
     /**
-     * @param symbol character
+     * @param symbol character to write
      * @throws IOException Exception
      */
     @Override

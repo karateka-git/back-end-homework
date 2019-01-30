@@ -5,6 +5,9 @@ import it.sevenbits.homework.tokens.IToken;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+
 import java.io.IOException;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
@@ -22,15 +25,15 @@ public class LexerTest {
         lexer = new Lexer(reader);
     }
 
-//    @Test
-//    public void NotDefinedTest() throws IOException {
-//        TestLogger logger = TestLoggerFactory.getTestLogger(Lexer.class);
-//        char preSymbol = '_';
-//        when(reader.hasNext()).thenReturn(true);
-//        when(reader.read()).thenReturn(preSymbol);
-//        lexer.readToken();
-//        assertEquals(String.format("State for \"%s\" not defined", preSymbol), logger.getLoggingEvents().get(0).getMessage());
-//    }
+    @Test
+    public void NotDefinedTest() throws IOException {
+        TestLogger logger = TestLoggerFactory.getTestLogger(Lexer.class);
+        char preSymbol = '_';
+        when(reader.hasNext()).thenReturn(true);
+        when(reader.read()).thenReturn(preSymbol);
+        lexer.readToken();
+        assertEquals(String.format("State for \"%s\" not defined", preSymbol), logger.getLoggingEvents().get(0).getMessage());
+    }
 
     @Test
     public void returnTokenNameMathTest() {

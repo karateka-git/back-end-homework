@@ -1,7 +1,11 @@
 package it.sevenbits.homework.buffer;
 
 public class StringBuilderBuffer implements IBuffer {
-    private StringBuilder buffer = new StringBuilder();
+    private StringBuilder buffer;
+
+    public StringBuilderBuffer() {
+        this.buffer = new StringBuilder();
+    }
 
     @Override
     public void addChar(final char c) {

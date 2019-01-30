@@ -2,7 +2,6 @@ package it.sevenbits.homework.lexer;
 
 import it.sevenbits.homework.buffer.IBuffer;
 import it.sevenbits.homework.buffer.StringBuilderBuffer;
-import it.sevenbits.homework.formatter.command.WriteWord;
 import it.sevenbits.homework.lexer.container.LexerContainer;
 import it.sevenbits.homework.lexer.command.LexerCommand;
 import it.sevenbits.homework.read.IReader;
@@ -21,7 +20,7 @@ public class Lexer implements ILexer {
     /**
      * logger variable
      */
-    final static Logger logger = LoggerFactory.getLogger(Lexer.class);
+    private final static Logger logger = LoggerFactory.getLogger(Lexer.class);
 
     /**
      *
