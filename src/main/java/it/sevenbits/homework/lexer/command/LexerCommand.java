@@ -8,10 +8,17 @@ import it.sevenbits.homework.pair.Pair;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * map command lexer
+ */
 public class LexerCommand {
     private final Map<Pair<String, Character>, ICommand> states;
     private final LexerContainer container;
 
+    /**
+     *
+     * @param container - contain parameters for command
+     */
     public LexerCommand(final LexerContainer container) {
         this.container = container;
         states = new HashMap<>();
@@ -43,6 +50,9 @@ public class LexerCommand {
         states.put(new Pair<>("singleComment", '\n'), new AddSymbol(container));
     }
 
+    /**
+     * execute command
+     */
     public void runningCommand() {
         CommandInvoker commandInvoker = new CommandInvoker();
         char copysignal;

@@ -7,11 +7,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-
+/**
+ * command for formatter
+ */
 public class WriteOpenBlock implements ICommand {
     private FormatterContainer container;
+
+    /**
+     * logger
+     */
     final static Logger logger = LoggerFactory.getLogger(WriteSpaceAndWord.class);
 
+    /**
+     *
+     * @param container contains information for command
+     */
     public WriteOpenBlock(final FormatterContainer container) {
         this.container = container;
     }

@@ -1,9 +1,16 @@
 package it.sevenbits.homework.tokens;
 
+/**
+ * IToken interface implementation
+ */
 public class Token implements IToken {
     private String name;
     private StringBuilder sb;
 
+    /**
+     * constructor
+     * @param name - token name
+     */
     public Token(final String name) {
         this.name = name;
         this.sb = new StringBuilder();

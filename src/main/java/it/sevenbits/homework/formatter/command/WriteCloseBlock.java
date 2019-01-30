@@ -7,12 +7,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-
+/**
+ * command for formatter
+ */
 public class WriteCloseBlock implements ICommand {
     private FormatterContainer container;
 
+    /**
+     * logger
+     */
+
     final static Logger logger = LoggerFactory.getLogger(WriteCloseBlock.class);
 
+    /**
+     *
+     * @param container contains information for command
+     */
     public WriteCloseBlock(final FormatterContainer container) {
         this.container = container;
     }

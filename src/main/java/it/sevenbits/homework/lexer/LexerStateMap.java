@@ -6,12 +6,18 @@ import it.sevenbits.homework.state.State;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * map state for lexer
+ */
 public class LexerStateMap {
     private final State startState = new State("startState");
     private final State finalState = new State("finalState");
 
     private final Map<Pair<State, Character>, State> states;
 
+    /**
+     * constructor, create map
+     */
     public LexerStateMap() {
         states = new HashMap<>();
 
@@ -54,10 +60,18 @@ public class LexerStateMap {
         states.put(new Pair<>(singleComment, '\n'), finalState);
     }
 
+    /**
+     *
+     * @return start state for map lexer
+     */
     public State getStartState() {
         return startState;
     }
 
+    /**
+     *
+     * @return final state for map lexer
+     */
     public State getFinalState() {
         return finalState;
     }

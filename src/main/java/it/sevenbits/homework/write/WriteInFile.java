@@ -11,10 +11,20 @@ public class WriteInFile implements IWriter, AutoCloseable {
      *
      */
     private BufferedWriter bw;
+
+    /**
+     *
+     * @param writer -
+     */
     public WriteInFile(final Writer writer) {
         bw = new BufferedWriter(writer);
     }
 
+    /**
+     *
+     * @param outputStream -
+     * @param charset -
+     */
     public WriteInFile(final OutputStream outputStream, final Charset charset) {
         bw = new BufferedWriter(new OutputStreamWriter(outputStream, charset));
     }

@@ -8,10 +8,21 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+/**
+ * command for formatter
+ */
 public class WriteSpaceAndWord implements ICommand {
     private FormatterContainer container;
+
+    /**
+     * logger
+     */
     final static Logger logger = LoggerFactory.getLogger(WriteSpaceAndWord.class);
 
+    /**
+     *
+     * @param container contains information for command
+     */
     public WriteSpaceAndWord(final FormatterContainer container) {
         this.container = container;
     }

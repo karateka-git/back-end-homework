@@ -1,8 +1,14 @@
 package it.sevenbits.homework.buffer;
 
+/**
+ * IBuffer interface implementation
+ */
 public class StringBuilderBuffer implements IBuffer {
     private StringBuilder buffer;
 
+    /**
+     * constructor
+     */
     public StringBuilderBuffer() {
         this.buffer = new StringBuilder();
     }

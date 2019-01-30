@@ -5,6 +5,9 @@ import it.sevenbits.homework.state.State;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * state map for formatter
+ */
 public class FormatterStateMap {
     private final State startState = new State("startState");
     private final State finalState = new State("finalState");
@@ -33,6 +36,10 @@ public class FormatterStateMap {
         states.put("singleComment", singleComment);
     }
 
+    /**
+     *
+     * @return start state for formatter
+     */
     State getStartState() {
         return startState;
     }

@@ -8,11 +8,18 @@ import it.sevenbits.homework.pair.Pair;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * command map for formatter
+ */
 public class FormatterCommand {
 
     private final Map<Pair<String, String>, ICommand> states;
     private FormatterContainer container;
 
+    /**
+     * create command map
+     * @param container contains information for command
+     */
     public FormatterCommand(final FormatterContainer container) {
         states = new HashMap<>();
         this.container = container;
@@ -53,6 +60,9 @@ public class FormatterCommand {
         states.put(new Pair<>("singleComment", "numeric"), new WriteWord(container));
     }
 
+    /**
+     * execute command
+     */
     public void runningCommand() {
         CommandInvoker commandInvoker = new CommandInvoker();
         if (!container.getToken().getName().equals("space")) {

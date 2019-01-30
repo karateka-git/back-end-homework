@@ -8,10 +8,22 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+/**
+ * command for formatter
+ */
 public class WriteTransferIndentAndWord implements ICommand {
     private FormatterContainer container;
+
+    /**
+     * logger
+     */
     final static Logger logger = LoggerFactory.getLogger(WriteTransferIndentAndWord.class);
 
+    /**
+     *
+     * @param container contains information for command
+     *
+     */
     public WriteTransferIndentAndWord(final FormatterContainer container) {
         this.container = container;
     }

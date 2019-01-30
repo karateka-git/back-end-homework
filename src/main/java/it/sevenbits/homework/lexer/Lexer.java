@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+/**
+ *
+ */
 public class Lexer implements ILexer {
     private IReader reader;
     private boolean hasMore = false;
